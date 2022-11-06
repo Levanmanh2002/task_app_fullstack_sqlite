@@ -4,3 +4,7 @@ const movieIcon = 0xe40f;
 const sportIcon = 0xe4dc;
 const travelIcon = 0xe071;
 const shopIcon = 0xe59c;
+const zoomOutIcon = 0xf02d;
+const watermarkIcon = 0xf0cc;
+const contactIcon = 0xe67d;
+const likeIcon = 0xed53;

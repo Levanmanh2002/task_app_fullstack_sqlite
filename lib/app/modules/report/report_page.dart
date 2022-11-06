@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:task_app/app/core/utils/extensions.dart';
 import 'package:task_app/app/core/values/colors.dart';
-import 'package:task_app/app/modules/home/home_controller.dart';
+import 'package:task_app/app/data/controller/controller.dart';
 import 'package:task_app/app/widgets/status_widget.dart';
 
 class ReportPage extends StatelessWidget {
@@ -29,18 +29,20 @@ class ReportPage extends StatelessWidget {
                   child: Text(
                     'Báo cáo của tôi',
                     style: TextStyle(
-                      fontSize: 24.0.sp,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 30.0.sp,
+                      fontFamily: 'Lobster',
+                      color: anhbao,
                     ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 4.0.wp),
                   child: Text(
-                    DateFormat.yMMMMEEEEd().format(DateTime.now()),
+                    DateFormat('MM-dd-yyyy ').add_jm().format(DateTime.now()),
                     style: TextStyle(
-                      fontSize: 14.0.sp,
-                      color: Colors.grey,
+                      fontSize: 15.0.sp,
+                      color: Colors.grey[600],
+                      fontFamily: 'Lobster',
                     ),
                   ),
                 ),
@@ -60,19 +62,20 @@ class ReportPage extends StatelessWidget {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       StatusWidget(
-                        color: Colors.green,
+                        color: green,
                         number: liveTasks,
-                        text: 'Nhiệm vụ trực tiếp',
+                        text: 'Công việc trực tiếp',
                       ),
                       StatusWidget(
-                        color: Colors.orange,
+                        color: lightBlue,
                         number: completedTasks,
                         text: 'Hoàn thành',
                       ),
                       StatusWidget(
-                        color: Colors.blue,
+                        color: orange,
                         number: createdTasks,
                         text: 'Tạo',
                       ),
@@ -90,7 +93,7 @@ class ReportPage extends StatelessWidget {
                       totalSteps: createdTasks == 0 ? 1 : createdTasks,
                       currentStep: completedTasks,
                       stepSize: 20,
-                      selectedColor: green,
+                      selectedColor: lightBlue,
                       unselectedColor: Colors.grey[200],
                       padding: 0,
                       width: 150,
@@ -103,7 +106,7 @@ class ReportPage extends StatelessWidget {
                           Text(
                             '${createdTasks == 0 ? 0 : precent}%',
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Lobster',
                               fontSize: 20.0.sp,
                             ),
                           ),
@@ -114,8 +117,8 @@ class ReportPage extends StatelessWidget {
                             'Hiệu quả',
                             style: TextStyle(
                               color: Colors.grey,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12.0.sp,
+                              fontFamily: 'Lobster',
+                              fontSize: 16.0.sp,
                             ),
                           ),
                         ],

@@ -38,8 +38,8 @@ class StatusWidget extends StatelessWidget {
             Text(
               '$number',
               style: TextStyle(
-                fontWeight: FontWeight.bold,
                 fontSize: 16.0.sp,
+                fontFamily: 'Lobster',
               ),
             ),
             SizedBox(
@@ -50,6 +50,7 @@ class StatusWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12.0.sp,
                 color: Colors.grey,
+                fontFamily: 'Lobster',
               ),
             ),
           ],

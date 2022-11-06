@@ -4,8 +4,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:task_app/app/core/utils/extensions.dart';
 import 'package:task_app/app/core/values/colors.dart';
+import 'package:task_app/app/data/controller/controller.dart';
 import 'package:task_app/app/data/models/task.dart';
-import 'package:task_app/app/modules/home/home_controller.dart';
 import 'package:task_app/app/widgets/icons.dart';
 
 class AddCard extends StatelessWidget {
@@ -26,6 +26,10 @@ class AddCard extends StatelessWidget {
             titlePadding: EdgeInsets.symmetric(vertical: 5.0.wp),
             radius: 5,
             title: 'Loại công việc',
+            titleStyle: const TextStyle(
+              fontFamily: 'Lobster',
+              color: anhbao,
+            ),
             content: Form(
               key: homeCtrl.formKey,
               child: Column(
@@ -40,7 +44,7 @@ class AddCard extends StatelessWidget {
                       ),
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Vui lòng nhập tiêu đề nhiệm vụ của bạn';
+                          return 'Vui lòng nhập tiêu đề công việc của bạn';
                         }
                         return null;
                       },
@@ -72,7 +76,7 @@ class AddCard extends StatelessWidget {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: blue,
+                      backgroundColor: pink,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -92,10 +96,15 @@ class AddCard extends StatelessWidget {
                         Get.back();
                         homeCtrl.addTask(task)
                             ? EasyLoading.showSuccess('Tạo thành công')
-                            : EasyLoading.showError('Nhiệm vụ trùng lặp');
+                            : EasyLoading.showError('Công việc trùng lặp');
                       }
                     },
-                    child: const Text('Xác nhận'),
+                    child: const Text(
+                      'Xác nhận',
+                      style: TextStyle(
+                        fontFamily: 'Lobster',
+                      ),
+                    ),
                   ),
                 ],
               ),

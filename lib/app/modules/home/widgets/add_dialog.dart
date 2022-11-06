@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:task_app/app/core/utils/extensions.dart';
-import 'package:task_app/app/modules/home/home_controller.dart';
+import 'package:task_app/app/core/values/colors.dart';
+import 'package:task_app/app/data/controller/controller.dart';
 
 class AddDialog extends StatelessWidget {
   final homeCtrl = Get.find<HomeController>();
@@ -61,7 +62,9 @@ class AddDialog extends StatelessWidget {
                       },
                       child: Text(
                         'Lưu',
-                        style: TextStyle(fontSize: 14.0.sp),
+                        style: TextStyle(
+                          fontSize: 14.0.sp,
+                        ),
                       ),
                     ),
                   ],
@@ -72,8 +75,9 @@ class AddDialog extends StatelessWidget {
                 child: Text(
                   'Nhiệm vụ mới',
                   style: TextStyle(
-                    fontSize: 20.0.sp,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 22.0.sp,
+                    fontFamily: 'Lobster',
+                    color: anhbao,
                   ),
                 ),
               ),
@@ -104,7 +108,11 @@ class AddDialog extends StatelessWidget {
                 ),
                 child: Text(
                   'Thêm vào',
-                  style: TextStyle(fontSize: 14.0.sp, color: Colors.grey),
+                  style: TextStyle(
+                    fontSize: 20.0.sp,
+                    fontFamily: 'Lobster',
+                    color: Colors.grey,
+                  ),
                 ),
               ),
               ...homeCtrl.tasks
@@ -132,11 +140,14 @@ class AddDialog extends StatelessWidget {
                                   SizedBox(
                                     width: 3.0.wp,
                                   ),
-                                  Text(
-                                    element.title,
-                                    style: TextStyle(
-                                      fontSize: 12.0.sp,
-                                      fontWeight: FontWeight.bold,
+                                  SizedBox(
+                                    width: 200.0.sp,
+                                    child: Text(
+                                      element.title,
+                                      style: TextStyle(
+                                        fontSize: 12.0.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ],

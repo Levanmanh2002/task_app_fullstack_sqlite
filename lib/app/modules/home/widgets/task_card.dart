@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_app/app/core/utils/extensions.dart';
+import 'package:task_app/app/data/controller/controller.dart';
 import 'package:task_app/app/data/models/task.dart';
 import 'package:task_app/app/modules/detail/detail_page.dart';
-import 'package:task_app/app/modules/home/home_controller.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class TaskCard extends StatelessWidget {
@@ -73,7 +73,7 @@ class TaskCard extends StatelessWidget {
                   Text(
                     task.title,
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Lobster',
                       fontSize: 12.0.sp,
                     ),
                     overflow: TextOverflow.ellipsis,
@@ -82,10 +82,9 @@ class TaskCard extends StatelessWidget {
                     height: 2.0.wp,
                   ),
                   Text(
-                    '${task.todos?.length ?? 0} task',
+                    '${task.todos?.length ?? 0} công việc',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12.0.sp,
+                      fontSize: 10.0.sp,
                     ),
                   ),
                 ],

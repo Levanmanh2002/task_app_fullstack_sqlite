@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_app/app/core/utils/extensions.dart';
 import 'package:task_app/app/core/values/colors.dart';
-import 'package:task_app/app/modules/home/home_controller.dart';
+import 'package:task_app/app/data/controller/controller.dart';
 
 class DoneList extends StatelessWidget {
   final homeCtrl = Get.find<HomeController>();
@@ -22,10 +22,11 @@ class DoneList extends StatelessWidget {
                     horizontal: 5.0.wp,
                   ),
                   child: Text(
-                    'Hoàn thành(${homeCtrl.doneTodos.length})',
+                    'Hoàn thành (${homeCtrl.doneTodos.length})',
                     style: TextStyle(
                       fontSize: 14.0.sp,
-                      color: Colors.grey,
+                      fontFamily: 'Lobster',
+                      color: anhbao,
                     ),
                   ),
                 ),

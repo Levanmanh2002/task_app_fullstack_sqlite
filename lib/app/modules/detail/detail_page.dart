@@ -3,9 +3,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:task_app/app/core/utils/extensions.dart';
+import 'package:task_app/app/data/controller/controller.dart';
 import 'package:task_app/app/modules/detail/widgets/doing_list.dart';
 import 'package:task_app/app/modules/detail/widgets/done_list.dart';
-import 'package:task_app/app/modules/home/home_controller.dart';
 
 class DetailPage extends StatelessWidget {
   final homeCtrl = Get.find<HomeController>();
@@ -29,7 +29,7 @@ class DetailPage extends StatelessWidget {
                     IconButton(
                       onPressed: () {
                         Get.back();
-                        homeCtrl.updateTodos;
+                        homeCtrl.updateTodos();
                         homeCtrl.changeTask(null);
                         homeCtrl.editCtrl.clear();
                       },
@@ -54,11 +54,13 @@ class DetailPage extends StatelessWidget {
                     SizedBox(
                       width: 3.0.wp,
                     ),
-                    Text(
-                      task.title,
-                      style: TextStyle(
-                        fontSize: 12.0.sp,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        task.title,
+                        style: TextStyle(
+                          fontSize: 12.0.sp,
+                          fontFamily: 'Lobster',
+                        ),
                       ),
                     ),
                   ],
@@ -77,9 +79,10 @@ class DetailPage extends StatelessWidget {
                     child: Row(
                       children: [
                         Text(
-                          '$totalTodos task',
+                          '$totalTodos công việc',
                           style: TextStyle(
-                            fontSize: 12.0.sp,
+                            fontSize: 10.0.sp,
+                            fontFamily: 'Lobster',
                             color: Colors.grey,
                           ),
                         ),
@@ -121,10 +124,10 @@ class DetailPage extends StatelessWidget {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey[400]!),
                     ),
-                    prefixIcon: Icon(
-                      Icons.check_box_outline_blank,
-                      color: Colors.grey[400],
-                    ),
+                    // prefixIcon: Icon(
+                    //   Icons.check_circle,
+                    //   color: Colors.grey[400],
+                    // ),
                     suffixIcon: IconButton(
                       onPressed: () {
                         if (homeCtrl.formKey.currentState!.validate()) {
@@ -135,7 +138,9 @@ class DetailPage extends StatelessWidget {
                               'Mục công việc thêm thành công',
                             );
                           } else {
-                            EasyLoading.showError('Mục công việc đã thoát');
+                            EasyLoading.showError(
+                              'Mục công việc đã tồn tại',
+                            );
                           }
                           homeCtrl.editCtrl.clear();
                         }

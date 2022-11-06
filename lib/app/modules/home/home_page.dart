@@ -3,8 +3,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:task_app/app/core/utils/extensions.dart';
 import 'package:task_app/app/core/values/colors.dart';
+import 'package:task_app/app/data/controller/controller.dart';
 import 'package:task_app/app/data/models/task.dart';
-import 'package:task_app/app/modules/home/home_controller.dart';
 import 'package:task_app/app/modules/home/widgets/add_card.dart';
 import 'package:task_app/app/modules/home/widgets/add_dialog.dart';
 import 'package:task_app/app/modules/home/widgets/task_card.dart';
@@ -28,8 +28,9 @@ class HomePage extends GetView<HomeController> {
                     child: Text(
                       "Danh sách của tôi",
                       style: TextStyle(
-                        fontSize: 24.0.sp,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 30.0.sp,
+                        fontFamily: 'Lobster',
+                        color: anhbao,
                       ),
                     ),
                   ),
@@ -72,7 +73,7 @@ class HomePage extends GetView<HomeController> {
         builder: (_, __, ___) {
           return Obx(
             () => FloatingActionButton(
-              backgroundColor: controller.deleting.value ? Colors.red : blue,
+              backgroundColor: controller.deleting.value ? red : anhbao,
               onPressed: () {
                 if (controller.tasks.isNotEmpty) {
                   Get.to(
@@ -120,6 +121,7 @@ class HomePage extends GetView<HomeController> {
                 ),
               ),
             ],
+            selectedItemColor: anhbao,
           ),
         ),
       ),

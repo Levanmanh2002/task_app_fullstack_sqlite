@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_app/app/core/utils/extensions.dart';
-import 'package:task_app/app/modules/home/home_controller.dart';
+import 'package:task_app/app/core/values/colors.dart';
+import 'package:task_app/app/data/controller/controller.dart';
 
 class DoingList extends StatelessWidget {
   final homeCtrl = Get.find<HomeController>();
@@ -19,12 +20,14 @@ class DoingList extends StatelessWidget {
                 'assets/images/task.png',
                 fit: BoxFit.cover,
                 width: 60.0.wp,
+                color: anhbao,
               ),
               Text(
-                'Thêm nhiệm vụ',
+                'Thêm công việc',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15.0.sp,
+                  fontSize: 20.0.sp,
+                  fontFamily: 'Lobster',
+                  color: red,
                 ),
               ),
             ],
